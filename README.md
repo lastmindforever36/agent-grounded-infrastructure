@@ -26,9 +26,11 @@ cd agent-grounded-infrastructure
 ./scripts/install.sh
 ```
 
-Full setup with the recommended no-secret MCP binaries:
+Optional hooks and recommended no-secret MCP binaries:
 
 ```bash
+./scripts/install.sh --hooks --dry-run
+./scripts/install.sh --hooks
 ./scripts/install-mcps.sh --dry-run
 ./scripts/install-mcps.sh
 ```
@@ -60,10 +62,13 @@ cd agent-grounded-infrastructure
 # 3. Preview optional MCP binary installation.
 ./scripts/install-mcps.sh --dry-run
 
-# 4. Install AGI templates.
+# 4. Install AGI templates. Hooks are opt-in and are not installed here.
 ./scripts/install.sh
 
-# 5. Optional: install the recommended MCP binaries too.
+# 5. Optional: install Codex prompt/session hooks after reviewing them.
+./scripts/install.sh --hooks
+
+# 6. Optional: install the recommended MCP binaries too.
 ./scripts/install-mcps.sh
 ```
 
@@ -177,10 +182,10 @@ The installer copies the same public-safe structure used by this harness:
   agents/docs_researcher.toml
   agents/design_pixel_perfect.toml
   agents/ui_debugger.toml
-  hooks/session_start_autonomy.py
-  hooks/user_prompt_autonomy.py
-  hooks/stop_autonomy.py
-  hooks.json
+  hooks/session_start_autonomy.py   # only with --hooks
+  hooks/user_prompt_autonomy.py     # only with --hooks
+  hooks/stop_autonomy.py            # only with --hooks
+  hooks.json                        # only with --hooks
   config.example.toml
 
 ~/AGENTS.md
@@ -226,6 +231,8 @@ AGI packages that operating model without shipping the private project.
 - [`docs/copy-paste-codex-setup.md`](docs/copy-paste-codex-setup.md) - exact install/copy structure.
 - [`docs/examples.md`](docs/examples.md) - prompt examples and expected behavior.
 - [`scripts/install.sh`](scripts/install.sh) - local installer with backups and dry-run.
+- [`scripts/uninstall.sh`](scripts/uninstall.sh) - removes AGI-owned installed files.
+- [`scripts/restore-backup.sh`](scripts/restore-backup.sh) - restores installer backups.
 - [`scripts/validate.sh`](scripts/validate.sh) - static validation.
 - [`scripts/sanitize-check.sh`](scripts/sanitize-check.sh) - secret leak scanner.
 
@@ -278,6 +285,10 @@ Install the public no-secret MCP binaries with:
 ./scripts/install-mcps.sh --dry-run
 ./scripts/install-mcps.sh
 ```
+
+The MCP installer uses pinned package versions by default. Use
+`./scripts/install-mcps.sh --floating` only when you intentionally want latest
+upstream versions.
 
 See [`docs/mcp-installation.md`](docs/mcp-installation.md).
 

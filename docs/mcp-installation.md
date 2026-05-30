@@ -18,6 +18,15 @@ Install:
 ./scripts/install-mcps.sh
 ```
 
+The installer pins package versions by default so the same public command does
+not silently change behavior when upstream packages release a new version.
+
+Use latest upstream only when you intentionally want it:
+
+```bash
+./scripts/install-mcps.sh --floating
+```
+
 Install AGI templates and MCP binaries together:
 
 ```bash
@@ -31,22 +40,22 @@ Node/npm tools:
 
 ```bash
 npm install -g \
-  @colbymchenry/codegraph \
-  @playwright/mcp \
-  @modelcontextprotocol/server-github \
-  @modelcontextprotocol/server-brave-search \
-  @_davideast/stitch-mcp
+  @colbymchenry/codegraph@0.9.4 \
+  @playwright/mcp@0.0.74 \
+  @modelcontextprotocol/server-github@2025.4.8 \
+  @modelcontextprotocol/server-brave-search@0.6.2 \
+  @_davideast/stitch-mcp@0.5.5
 ```
 
 Python/uv tools:
 
 ```bash
-uv tool install mcp-server-git
-uv tool install mcp-server-fetch
-uv tool install mcp-server-time
-uv tool install grep-mcp
-uv tool install duckduckgo-mcp-server
-uv tool install scrapling
+uv tool install mcp-server-git==2026.1.14
+uv tool install mcp-server-fetch==2025.4.7
+uv tool install mcp-server-time==2026.1.26
+uv tool install grep-mcp==1.0.3
+uv tool install duckduckgo-mcp-server==0.3.0
+uv tool install scrapling==0.4.7
 ```
 
 ## CodeGraph
@@ -100,6 +109,13 @@ Add them only to your private `~/.codex/config.toml`.
 
 Do not commit the private config.
 
+## Approval Posture
+
+`templates/codex/config.example.toml` shows autonomous MCP routing because AGI is
+built for long-running local work. For a shared machine, unknown repository, or
+sensitive environment, review Codex's current MCP approval-mode docs and tighten
+the approval posture before enabling browser, search, GitHub, or scraping MCPs.
+
 ## If A Tool Is Missing
 
 AGI should not immediately abandon a first-class tool just because it is absent,
@@ -112,4 +128,3 @@ Expected behavior:
 3. fall back only after setup fails, credentials are missing, or the tool is not
    relevant;
 4. record the fallback reason.
-

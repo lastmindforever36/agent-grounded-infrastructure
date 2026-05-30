@@ -4,10 +4,11 @@ set -euo pipefail
 DRY_RUN=0
 SKIP_NODE=0
 SKIP_UV=0
+FLOATING="${AGI_MCP_FLOATING:-0}"
 
 usage() {
   cat <<'EOF'
-Usage: scripts/install-mcps.sh [--dry-run] [--skip-node] [--skip-uv]
+Usage: scripts/install-mcps.sh [--dry-run] [--skip-node] [--skip-uv] [--floating]
 
 Installs the no-secret MCP/client binaries used by AGI.
 
@@ -18,6 +19,7 @@ add your own credentials for GitHub, Brave Search, Stitch, etc.
 
 Environment:
   AGI_CONFIGURE_CODEGRAPH=1  run "codegraph install --target codex --location global -y"
+  AGI_MCP_FLOATING=1         install latest package versions instead of pinned versions
 EOF
 }
 
@@ -26,6 +28,7 @@ while [ "$#" -gt 0 ]; do
     --dry-run) DRY_RUN=1 ;;
     --skip-node) SKIP_NODE=1 ;;
     --skip-uv) SKIP_UV=1 ;;
+    --floating) FLOATING=1 ;;
     -h|--help) usage; exit 0 ;;
     *) echo "Unknown argument: $1" >&2; usage; exit 2 ;;
   esac
@@ -52,22 +55,50 @@ need_command() {
 
 if [ "$SKIP_NODE" -ne 1 ]; then
   need_command npm
-  run npm install -g \
-    @colbymchenry/codegraph \
-    @playwright/mcp \
-    @modelcontextprotocol/server-github \
-    @modelcontextprotocol/server-brave-search \
-    @_davideast/stitch-mcp
+  if [ "$FLOATING" = "1" ]; then
+    node_packages=(
+      @colbymchenry/codegraph
+      @playwright/mcp
+      @modelcontextprotocol/server-github
+      @modelcontextprotocol/server-brave-search
+      @_davideast/stitch-mcp
+    )
+  else
+    node_packages=(
+      @colbymchenry/codegraph@0.9.4
+      @playwright/mcp@0.0.74
+      @modelcontextprotocol/server-github@2025.4.8
+      @modelcontextprotocol/server-brave-search@0.6.2
+      @_davideast/stitch-mcp@0.5.5
+    )
+  fi
+  run npm install -g "${node_packages[@]}"
 fi
 
 if [ "$SKIP_UV" -ne 1 ]; then
   need_command uv
-  run uv tool install mcp-server-git
-  run uv tool install mcp-server-fetch
-  run uv tool install mcp-server-time
-  run uv tool install grep-mcp
-  run uv tool install duckduckgo-mcp-server
-  run uv tool install scrapling
+  if [ "$FLOATING" = "1" ]; then
+    uv_packages=(
+      mcp-server-git
+      mcp-server-fetch
+      mcp-server-time
+      grep-mcp
+      duckduckgo-mcp-server
+      scrapling
+    )
+  else
+    uv_packages=(
+      mcp-server-git==2026.1.14
+      mcp-server-fetch==2025.4.7
+      mcp-server-time==2026.1.26
+      grep-mcp==1.0.3
+      duckduckgo-mcp-server==0.3.0
+      scrapling==0.4.7
+    )
+  fi
+  for package_name in "${uv_packages[@]}"; do
+    run uv tool install "$package_name"
+  done
 fi
 
 if [ "${AGI_CONFIGURE_CODEGRAPH:-0}" = "1" ]; then

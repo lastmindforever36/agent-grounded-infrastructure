@@ -1,3 +1,5 @@
+<!-- AGI_TEMPLATE:GEMINI:v1 -->
+
 # Global Antigravity/Gemini Operating Model
 
 Default behavior:
@@ -35,4 +37,3 @@ Long-running work:
 - Use a living project ledger/checkpoint for non-trivial work that spans sessions.
 - After each executed slice, append concise evidence, update only proven checklist items, and refresh the next best slice.
 - A passing gate proves that gate, not the whole product.
-

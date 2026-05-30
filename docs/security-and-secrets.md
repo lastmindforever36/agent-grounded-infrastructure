@@ -24,6 +24,11 @@ This repository must stay public-safe.
 git status --short
 ```
 
+`./scripts/validate.sh` also runs optional `gitleaks` and `trufflehog`
+filesystem scans when those binaries are installed. Use at least one stronger
+scanner before tagging a public release if you touched templates, scripts,
+config examples, or docs that mention credentials.
+
 If the scanner flags a real secret, rotate it before publishing. Removing it
 from a commit is not enough once it was pushed.
 
@@ -43,4 +48,3 @@ to guess.
 AGI can be used with strict or permissive Codex settings. For public defaults,
 prefer safe settings first and document any power-user mode as a deliberate
 local choice.
-

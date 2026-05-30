@@ -12,6 +12,13 @@ cd agent-grounded-infrastructure
 ./scripts/install.sh
 ```
 
+Optional hooks:
+
+```bash
+./scripts/install.sh --hooks --dry-run
+./scripts/install.sh --hooks
+```
+
 Optional MCP binaries:
 
 ```bash
@@ -37,11 +44,11 @@ Optional MCP binaries:
     benchmark_researcher.toml
     design_pixel_perfect.toml
     ui_debugger.toml
-  hooks/
+  hooks/                 # only with --hooks
     session_start_autonomy.py
     user_prompt_autonomy.py
     stop_autonomy.py
-  hooks.json
+  hooks.json             # only with --hooks
   config.example.toml
 
 ~/AGENTS.md
@@ -63,7 +70,7 @@ model = "gpt-5.5"
 model_reasoning_effort = "xhigh"
 
 [features]
-hooks = true
+hooks = false
 goals = true
 memories = true
 
@@ -72,6 +79,9 @@ command = "codegraph"
 args = ["serve", "--mcp"]
 default_tools_approval_mode = "auto"
 ```
+
+Set `hooks = true` only after installing and reviewing the hook templates with
+`./scripts/install.sh --hooks`.
 
 For MCPs that need credentials, add your own values locally:
 

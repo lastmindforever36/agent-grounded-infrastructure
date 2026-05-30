@@ -1,3 +1,5 @@
+<!-- AGI_TEMPLATE:AGENTS:v1 -->
+
 # Global Operating Model
 
 ## Default Mode
@@ -84,4 +86,3 @@ For long goals or unattended work, keep a compact searchable session checkpoint 
 - If no automated checks exist, validate with direct artifacts.
 - For performance/debug work, prove the measurement path before patching product code.
 - Before ending, classify the selected slice as Done, Blocked, or Cancelled.
-

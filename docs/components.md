@@ -141,6 +141,8 @@ Files:
 - `scripts/sanitize-check.sh`
 - `scripts/install.sh --dry-run`
 - `scripts/install-mcps.sh --dry-run`
+- `scripts/uninstall.sh --dry-run`
+- `scripts/restore-backup.sh --target <path> --dry-run`
 
 Why they exist:
 
@@ -148,6 +150,8 @@ Why they exist:
 - prove Markdown links are not broken;
 - prove secrets are not accidentally committed;
 - show exactly what will be copied before touching the user environment.
+- give users a documented way to undo AGI-owned files or restore installer
+  backups.
 
 Failure mode it prevents:
 
@@ -173,4 +177,3 @@ Failure mode it prevents:
 - repeating old investigations;
 - losing accepted decisions;
 - marking checklist items without evidence.
-

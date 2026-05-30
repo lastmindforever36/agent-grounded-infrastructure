@@ -56,6 +56,10 @@ cd agent-grounded-infrastructure
 ./scripts/install.sh --dry-run
 ./scripts/install.sh
 
+Optional hooks:
+./scripts/install.sh --hooks --dry-run
+./scripts/install.sh --hooks
+
 Optional MCP binaries:
 ./scripts/install-mcps.sh --dry-run
 ./scripts/install-mcps.sh

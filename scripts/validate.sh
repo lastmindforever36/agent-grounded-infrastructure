@@ -6,6 +6,8 @@ cd "$ROOT"
 
 bash -n scripts/install.sh
 bash -n scripts/install-mcps.sh
+bash -n scripts/uninstall.sh
+bash -n scripts/restore-backup.sh
 bash -n scripts/sanitize-check.sh
 
 python3 - <<'PY'
@@ -57,5 +59,17 @@ print("Markdown links OK")
 PY
 
 ./scripts/sanitize-check.sh
+
+if command -v gitleaks >/dev/null 2>&1; then
+    gitleaks detect --no-git --redact --source .
+else
+    echo "Optional gitleaks check skipped: gitleaks not installed"
+fi
+
+if command -v trufflehog >/dev/null 2>&1; then
+    trufflehog filesystem --no-update --fail .
+else
+    echo "Optional trufflehog check skipped: trufflehog not installed"
+fi
 
 echo "validate: PASS"

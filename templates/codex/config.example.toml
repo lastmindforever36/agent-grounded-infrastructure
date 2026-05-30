@@ -11,7 +11,9 @@ max_threads = 4
 max_depth = 1
 
 [features]
-hooks = true
+# Hooks are opt-in in the public installer. Set this to true only after
+# installing the hook templates with scripts/install.sh --hooks.
+hooks = false
 goals = true
 memories = true
 shell_snapshot = true
@@ -117,4 +119,3 @@ config_file = "~/.codex/agents/design_pixel_perfect.toml"
 [agents.benchmark_researcher]
 description = "Read-only benchmark translator for vague product or architecture goals."
 config_file = "~/.codex/agents/benchmark_researcher.toml"
-
