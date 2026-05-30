@@ -13,6 +13,10 @@ Use this before publishing to GitHub.
 - [ ] README includes an AI reviewer prompt or links to one.
 - [ ] Install docs work from a fresh clone.
 - [ ] MCP docs list required secrets without including any.
+- [ ] MCP install script has a dry-run path.
+- [ ] Hooks are explained as guardrails, not magic.
+- [ ] Codex + Antigravity/Gemini collaboration is documented.
+- [ ] Components explain why each piece exists.
 - [ ] AI reviewer docs explain how to evaluate the harness.
 - [ ] License is present.
 

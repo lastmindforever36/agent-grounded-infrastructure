@@ -21,7 +21,9 @@ AGI packages a practical solution:
 - public-safe Codex templates;
 - bounded subagent roles;
 - MCP inventory and setup guidance;
+- optional MCP binary installer;
 - optional hooks;
+- Codex + Antigravity/Gemini collaboration guidance;
 - secret scanning;
 - validation scripts;
 - AI reviewer documentation.
@@ -39,4 +41,3 @@ This project succeeds if other developers can:
 
 More model access allows longer validation runs, broader test matrices, and
 more independent review passes on open-source agent workflows.
-

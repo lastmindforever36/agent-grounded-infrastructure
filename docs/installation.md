@@ -27,6 +27,20 @@ Or run it yourself:
 ./scripts/install.sh
 ```
 
+Optional MCP binaries:
+
+```bash
+./scripts/install-mcps.sh --dry-run
+./scripts/install-mcps.sh
+```
+
+Or together:
+
+```bash
+AGI_INSTALL_MCPS=1 ./scripts/install.sh --dry-run
+AGI_INSTALL_MCPS=1 ./scripts/install.sh
+```
+
 The installer writes:
 
 - `skills/agi` into `$CODEX_HOME/skills/agi`;
@@ -36,6 +50,7 @@ The installer writes:
 - `templates/AGENTS.md` into `$HOME/AGENTS.md` if no file exists;
 - `templates/gemini/GEMINI.md` into `$HOME/.gemini/GEMINI.md` if requested or
   if the directory already exists.
+- optional MCP binaries when `AGI_INSTALL_MCPS=1`.
 
 Existing files are backed up unless you run with `--dry-run`.
 
@@ -60,6 +75,9 @@ See `docs/mcp-reference.md`.
 
 For the exact copied layout, see
 [`docs/copy-paste-codex-setup.md`](copy-paste-codex-setup.md).
+
+For MCP installation details, see
+[`docs/mcp-installation.md`](mcp-installation.md).
 
 ## After Install
 

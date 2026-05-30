@@ -17,6 +17,7 @@ Environment:
   CODEX_HOME   default: $HOME/.codex
   AGENTS_HOME  default: $HOME/.agents
   AGI_INSTALL_GEMINI=1 to install templates/gemini/GEMINI.md even if .gemini does not exist
+  AGI_INSTALL_MCPS=1 to also run scripts/install-mcps.sh
 
 No secrets are installed. Edit $CODEX_HOME/config.toml manually for local MCP credentials.
 EOF
@@ -80,6 +81,14 @@ fi
 
 if [ "${AGI_INSTALL_GEMINI:-0}" = "1" ] || [ -d "$HOME/.gemini" ]; then
   install_file "$ROOT/templates/gemini/GEMINI.md" "$HOME/.gemini/GEMINI.md"
+fi
+
+if [ "${AGI_INSTALL_MCPS:-0}" = "1" ]; then
+  if [ "$DRY_RUN" -eq 1 ]; then
+    "$ROOT/scripts/install-mcps.sh" --dry-run
+  else
+    run "$ROOT/scripts/install-mcps.sh"
+  fi
 fi
 
 echo "AGI install complete."

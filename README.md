@@ -26,6 +26,13 @@ cd agent-grounded-infrastructure
 ./scripts/install.sh
 ```
 
+Full setup with the recommended no-secret MCP binaries:
+
+```bash
+./scripts/install-mcps.sh --dry-run
+./scripts/install-mcps.sh
+```
+
 Then open Codex and use one command:
 
 ```text
@@ -35,6 +42,34 @@ $agi continue
 That is the point. You should not need to remember which skill, MCP, subagent,
 browser tool, ADB flow, CodeGraph command, security pass, or design lane to use.
 AGI routes the work from the live state of the repo.
+
+## Full Copy-Paste Setup
+
+If you want the closest public version of this harness:
+
+```bash
+git clone https://github.com/don0736/agent-grounded-infrastructure.git
+cd agent-grounded-infrastructure
+
+# 1. Validate the repo itself.
+./scripts/validate.sh
+
+# 2. Preview the Codex/Gemini files that will be copied.
+./scripts/install.sh --dry-run
+
+# 3. Preview optional MCP binary installation.
+./scripts/install-mcps.sh --dry-run
+
+# 4. Install AGI templates.
+./scripts/install.sh
+
+# 5. Optional: install the recommended MCP binaries too.
+./scripts/install-mcps.sh
+```
+
+Then copy the MCP blocks you want from
+[`templates/codex/config.example.toml`](templates/codex/config.example.toml)
+into your private `~/.codex/config.toml` and add your own secrets locally.
 
 ## Ask Your AI If This Is Worth Installing
 
@@ -107,6 +142,25 @@ AGI should infer the right route: CodeGraph, tests, Playwright, ADB/logcat,
 Android emulator QA, security scan, design, Stitch, browser automation, docs
 research, batch runner, or a bounded subagent.
 
+## Goal Mode Examples
+
+AGI is designed for Codex `/goal` work:
+
+```text
+/goal $agi make this project production-ready. Work by verified slices. For
+each slice, inspect live state, choose the highest-leverage next action, try to
+falsify the strategy before editing, validate with concrete artifacts, update
+the checkpoint, and keep the goal active until the actual objective is done.
+```
+
+Or shorter:
+
+```text
+/goal $agi keep improving this product until the release checklist is actually
+green. Use live code, tests, logs, docs, runtime evidence, and checkpoints as
+source of truth.
+```
+
 ## What Lands On Disk
 
 The installer copies the same public-safe structure used by this harness:
@@ -165,6 +219,10 @@ AGI packages that operating model without shipping the private project.
 - [`templates/codex/hooks/`](templates/codex/hooks/) - optional lightweight autonomy hooks.
 - [`templates/gemini/GEMINI.md`](templates/gemini/GEMINI.md) - optional Gemini/Antigravity companion.
 - [`docs/mcp-reference.md`](docs/mcp-reference.md) - MCP inventory and required credentials.
+- [`docs/mcp-installation.md`](docs/mcp-installation.md) - install commands for the recommended MCP binaries.
+- [`docs/components.md`](docs/components.md) - why every part of the harness exists.
+- [`docs/codex-antigravity.md`](docs/codex-antigravity.md) - how Codex can collaborate with Antigravity/Gemini.
+- [`docs/adapting-to-other-agents.md`](docs/adapting-to-other-agents.md) - how to adapt AGI to other AI agents.
 - [`docs/copy-paste-codex-setup.md`](docs/copy-paste-codex-setup.md) - exact install/copy structure.
 - [`docs/examples.md`](docs/examples.md) - prompt examples and expected behavior.
 - [`scripts/install.sh`](scripts/install.sh) - local installer with backups and dry-run.
@@ -213,6 +271,50 @@ AGI knows how to route to these when configured:
 
 Missing MCPs are not fatal. AGI should use the best available evidence and
 record why it fell back.
+
+Install the public no-secret MCP binaries with:
+
+```bash
+./scripts/install-mcps.sh --dry-run
+./scripts/install-mcps.sh
+```
+
+See [`docs/mcp-installation.md`](docs/mcp-installation.md).
+
+## Codex + Antigravity / Gemini
+
+AGI includes a companion
+[`templates/gemini/GEMINI.md`](templates/gemini/GEMINI.md) because some work is
+better with a second model:
+
+- Codex owns backend, Android implementation, scraper/DB/infra, security, and
+  release gates by default.
+- Antigravity/Gemini is useful for frontend, visual judgment, browser-heavy
+  evidence, screenshots, design systems, and multimodal critique.
+- Either model can work on either side when the evidence says it is the right
+  worker.
+- They should not edit the same files concurrently.
+- A second opinion is advice, not authority; live code, logs, tests, and
+  screenshots still win.
+
+See [`docs/codex-antigravity.md`](docs/codex-antigravity.md).
+
+## Why Each Piece Exists
+
+AGI is intentionally modular:
+
+| Piece | Why it exists |
+| --- | --- |
+| `$agi` skill | One command that routes broad prompts into concrete execution. |
+| `AGENTS.md` | Durable rules every session sees before touching the repo. |
+| Subagent templates | Bounded specialists for mapping, implementation, review, UI, docs, and evidence. |
+| MCP config | Gives the model structured access to code graphs, browser proof, docs, search, and repos. |
+| Hooks | Lightweight reminders at session start, prompt submit, and stop so the agent does not drift. |
+| Checkpoints/ledgers | Let long goals survive compaction, resumes, and multi-day work. |
+| Validation scripts | Prove the harness is installable and public-safe before sharing. |
+| Secret scanner | Prevents accidental leaks of private Codex state or API keys. |
+
+See [`docs/components.md`](docs/components.md).
 
 ## Public Safety
 

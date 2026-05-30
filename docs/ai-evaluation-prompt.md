@@ -18,7 +18,11 @@ Read:
 - docs/architecture.md
 - docs/usage.md
 - docs/mcp-reference.md
+- docs/mcp-installation.md
+- docs/components.md
+- docs/codex-antigravity.md
 - scripts/install.sh
+- scripts/install-mcps.sh
 - scripts/validate.sh
 - scripts/sanitize-check.sh
 
@@ -33,6 +37,9 @@ Evaluate it against real agent failure modes:
 8. uninitialized tools being abandoned too early;
 9. secret leakage through copied local configs;
 10. confusing installation.
+11. unclear MCP setup;
+12. unclear hook behavior;
+13. unclear collaboration with other agents such as Gemini/Antigravity.
 
 Return:
 - verdict: install / do not install / install with changes;
@@ -56,4 +63,3 @@ it is worth installing for Codex. Judge it by whether it prevents real long-run
 agent failures: stale context, weak validation, wrong-layer fixes, subagent
 theater, manual queue burn, premature completion, and secret leakage.
 ```
-

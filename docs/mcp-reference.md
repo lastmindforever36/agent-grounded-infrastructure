@@ -3,6 +3,10 @@
 This harness treats MCP servers as optional first-class tools. Configure only
 what you need.
 
+To install the recommended no-secret binaries, use
+[`scripts/install-mcps.sh`](../scripts/install-mcps.sh) or read
+[`docs/mcp-installation.md`](mcp-installation.md).
+
 ## Recommended MCPs
 
 | MCP | Purpose | Secret Required |
@@ -19,6 +23,26 @@ what you need.
 | `scrapling` | Scraping research and page extraction | No/depends on use |
 | `time` | Time/date helper | No |
 | `grep` | Structured grep MCP | No |
+
+## Install Commands
+
+Preview first:
+
+```bash
+./scripts/install-mcps.sh --dry-run
+```
+
+Install:
+
+```bash
+./scripts/install-mcps.sh
+```
+
+Or with the main AGI install:
+
+```bash
+AGI_INSTALL_MCPS=1 ./scripts/install.sh
+```
 
 ## Public Config Rule
 
@@ -52,4 +76,3 @@ BRAVE_API_KEY = "REPLACE_WITH_LOCAL_SECRET"
 [mcp_servers.stitch.env]
 STITCH_API_KEY = "REPLACE_WITH_LOCAL_SECRET"
 ```
-

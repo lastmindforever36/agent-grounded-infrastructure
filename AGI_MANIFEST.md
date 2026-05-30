@@ -25,3 +25,10 @@ AGI - Agent Grounded Infrastructure - is built around five constraints:
 This harness is intentionally opinionated but not rigid. It should expand the
 model's search space, not narrow it into ceremony.
 
+The public repo should be judged by whether a human or another AI can answer
+four questions quickly:
+
+1. What problem does this solve?
+2. What gets installed?
+3. Why does each component exist?
+4. How do I prove it is safe before using it?

@@ -44,3 +44,26 @@ Thread outline:
 6. **Ask**
    - Send the repo to your own AI and ask whether it is worth installing.
    - Try it, review it, and suggest high-signal improvements.
+
+Longer install-focused post:
+
+```text
+AGI now has the full copy-paste path:
+
+git clone https://github.com/don0736/agent-grounded-infrastructure
+cd agent-grounded-infrastructure
+./scripts/validate.sh
+./scripts/install.sh --dry-run
+./scripts/install.sh
+
+Optional MCP binaries:
+./scripts/install-mcps.sh --dry-run
+./scripts/install-mcps.sh
+
+Then use:
+$agi continue
+
+The point is simple: the user should not need to know which skill, MCP, hook,
+subagent, CodeGraph flow, ADB path, browser tool, design lane, or reviewer to
+invoke. The harness routes from live evidence.
+```

@@ -12,6 +12,13 @@ cd agent-grounded-infrastructure
 ./scripts/install.sh
 ```
 
+Optional MCP binaries:
+
+```bash
+./scripts/install-mcps.sh --dry-run
+./scripts/install-mcps.sh
+```
+
 ## Installed Layout
 
 ```text
@@ -40,6 +47,9 @@ cd agent-grounded-infrastructure
 ~/AGENTS.md
 ~/.gemini/GEMINI.md   # optional
 ```
+
+If `AGI_INSTALL_MCPS=1` is used, the installer also runs
+`scripts/install-mcps.sh`.
 
 ## What To Copy Into Your Private Config
 
@@ -107,4 +117,3 @@ each slice, inspect live state, choose the highest-leverage next action, try to
 falsify the strategy before editing, validate with concrete artifacts, update
 the checkpoint, and keep the goal active until the actual objective is done.
 ```
-

@@ -5,6 +5,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 bash -n scripts/install.sh
+bash -n scripts/install-mcps.sh
 bash -n scripts/sanitize-check.sh
 
 python3 - <<'PY'

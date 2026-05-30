@@ -2,6 +2,8 @@
 
 AGI is a layered harness.
 
+For a component-by-component explanation, see [`components.md`](components.md).
+
 ## 1. Global Operating Model
 
 `templates/AGENTS.md` contains the durable rules every session should inherit:
@@ -61,6 +63,8 @@ Recommended MCPs:
 
 See `docs/mcp-reference.md`.
 
+Use `scripts/install-mcps.sh` to install the recommended no-secret MCP binaries.
+
 ## 5. Hooks
 
 Optional hooks add lightweight reminders at session start, prompt submit, and
@@ -76,3 +80,4 @@ Gemini-style agents. Use it when two agents coordinate on one project:
 - record decisions in a shared ledger;
 - compare advice against live evidence before acting.
 
+See [`codex-antigravity.md`](codex-antigravity.md).
