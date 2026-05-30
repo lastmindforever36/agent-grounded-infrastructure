@@ -11,7 +11,7 @@ secret-safe templates, and evidence-first validation.
 
 Not a prompt dump. An installable agent operating system.
 
-GitHub: https://github.com/YOUR_USER/agent-grounded-infrastructure
+GitHub: https://github.com/don0736/agent-grounded-infrastructure
 ```
 
 Thread outline:
@@ -35,4 +35,3 @@ Thread outline:
 
 5. **Ask**
    - Try it, review it, and suggest high-signal improvements.
-

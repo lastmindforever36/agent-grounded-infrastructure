@@ -31,7 +31,7 @@ project data are included.
 ## Quick Start
 
 ```bash
-git clone https://github.com/YOUR_USER/agent-grounded-infrastructure.git
+git clone https://github.com/don0736/agent-grounded-infrastructure.git
 cd agent-grounded-infrastructure
 
 ./scripts/validate.sh
@@ -97,4 +97,3 @@ Run this before publishing:
 ## License
 
 MIT.
-
