@@ -13,13 +13,13 @@ partner.
 > Give the model freedom to solve the problem, but force every important move
 > through live code, logs, tests, runtime evidence, ownership, and checkpoints.
 
-[![Validate](https://github.com/don0736/agent-grounded-infrastructure/actions/workflows/validate.yml/badge.svg)](https://github.com/don0736/agent-grounded-infrastructure/actions/workflows/validate.yml)
+[![Validate](https://github.com/lastmindforever36/agent-grounded-infrastructure/actions/workflows/validate.yml/badge.svg)](https://github.com/lastmindforever36/agent-grounded-infrastructure/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-white?labelColor=black&style=flat-square)](LICENSE)
 
 ## TL;DR
 
 ```bash
-git clone https://github.com/don0736/agent-grounded-infrastructure.git
+git clone https://github.com/lastmindforever36/agent-grounded-infrastructure.git
 cd agent-grounded-infrastructure
 ./scripts/validate.sh
 ./scripts/install.sh --dry-run
@@ -50,7 +50,7 @@ AGI routes the work from the live state of the repo.
 If you want the closest public version of this harness:
 
 ```bash
-git clone https://github.com/don0736/agent-grounded-infrastructure.git
+git clone https://github.com/lastmindforever36/agent-grounded-infrastructure.git
 cd agent-grounded-infrastructure
 
 # 1. Validate the repo itself.
@@ -84,7 +84,7 @@ Paste this into Codex, ChatGPT, Claude, Gemini, or any code agent:
 Review this GitHub repo and tell me if it is worth installing for long-running
 Codex engineering work:
 
-https://github.com/don0736/agent-grounded-infrastructure
+https://github.com/lastmindforever36/agent-grounded-infrastructure
 
 Judge it by whether it solves real agent failure modes: stale context, weak
 validation, wrong-layer fixes, subagent theater, repetitive manual loops,
@@ -241,7 +241,7 @@ AGI packages that operating model without shipping the private project.
 Paste this into Codex from a normal shell:
 
 ```text
-Install AGI from https://github.com/don0736/agent-grounded-infrastructure.
+Install AGI from https://github.com/lastmindforever36/agent-grounded-infrastructure.
 Read the README and docs/installation.md first. Run validate, run install
 with --dry-run, explain what files will be copied, then install only the
 public-safe harness. Do not copy private tokens, sessions, profiles, cookies,
@@ -251,7 +251,7 @@ logs, or account state.
 Or do it manually:
 
 ```bash
-git clone https://github.com/don0736/agent-grounded-infrastructure.git
+git clone https://github.com/lastmindforever36/agent-grounded-infrastructure.git
 cd agent-grounded-infrastructure
 ./scripts/validate.sh
 ./scripts/install.sh --dry-run

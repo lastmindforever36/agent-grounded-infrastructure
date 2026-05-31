@@ -12,7 +12,7 @@
 Ask an agent to do it:
 
 ```text
-Install AGI from https://github.com/don0736/agent-grounded-infrastructure.
+Install AGI from https://github.com/lastmindforever36/agent-grounded-infrastructure.
 Read the README and docs/installation.md first. Run validate, run install
 with --dry-run, explain what files will be copied, then install only the
 public-safe harness. Do not copy private tokens, sessions, profiles, cookies,

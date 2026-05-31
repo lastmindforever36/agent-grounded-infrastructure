@@ -58,7 +58,7 @@ Ask the target agent:
 
 ```text
 Here is AGI - Agent Grounded Infrastructure:
-https://github.com/don0736/agent-grounded-infrastructure
+https://github.com/lastmindforever36/agent-grounded-infrastructure
 
 Port the operating model to your own agent runtime. Preserve the outcome:
 one-command routing, evidence-first execution, bounded delegation, MCP/tool

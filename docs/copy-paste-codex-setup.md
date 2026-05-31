@@ -5,7 +5,7 @@ This page explains exactly what AGI copies and what the user must keep private.
 ## Install
 
 ```bash
-git clone https://github.com/don0736/agent-grounded-infrastructure.git
+git clone https://github.com/lastmindforever36/agent-grounded-infrastructure.git
 cd agent-grounded-infrastructure
 ./scripts/validate.sh
 ./scripts/install.sh --dry-run

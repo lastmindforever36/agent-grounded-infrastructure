@@ -5,7 +5,7 @@ Use this when you want another AI to review AGI before installing it.
 ```text
 You are reviewing an open-source Codex harness:
 
-https://github.com/don0736/agent-grounded-infrastructure
+https://github.com/lastmindforever36/agent-grounded-infrastructure
 
 Task:
 Decide whether this is worth installing for serious long-running software work.
@@ -58,7 +58,7 @@ secret-safe templates.
 ## Short Version
 
 ```text
-Review https://github.com/don0736/agent-grounded-infrastructure and tell me if
+Review https://github.com/lastmindforever36/agent-grounded-infrastructure and tell me if
 it is worth installing for Codex. Judge it by whether it prevents real long-run
 agent failures: stale context, weak validation, wrong-layer fixes, subagent
 theater, manual queue burn, premature completion, and secret leakage.

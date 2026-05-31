@@ -13,7 +13,7 @@ checkpoints.
 
 Not a prompt dump. A grounded operating harness.
 
-GitHub: https://github.com/don0736/agent-grounded-infrastructure
+GitHub: https://github.com/lastmindforever36/agent-grounded-infrastructure
 ```
 
 Thread outline:
@@ -50,7 +50,7 @@ Longer install-focused post:
 ```text
 AGI now has the full copy-paste path:
 
-git clone https://github.com/don0736/agent-grounded-infrastructure
+git clone https://github.com/lastmindforever36/agent-grounded-infrastructure
 cd agent-grounded-infrastructure
 ./scripts/validate.sh
 ./scripts/install.sh --dry-run
