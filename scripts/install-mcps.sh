@@ -66,10 +66,10 @@ if [ "$SKIP_NODE" -ne 1 ]; then
   else
     node_packages=(
       @colbymchenry/codegraph@0.9.8
-      @playwright/mcp@0.0.74
+      @playwright/mcp@0.0.75
       @modelcontextprotocol/server-github@2025.4.8
       @modelcontextprotocol/server-brave-search@0.6.2
-      @_davideast/stitch-mcp@0.5.5
+      @_davideast/stitch-mcp@0.9.0
     )
   fi
   run npm install -g "${node_packages[@]}"
@@ -83,8 +83,8 @@ if [ "$SKIP_UV" -ne 1 ]; then
       mcp-server-fetch
       mcp-server-time
       grep-mcp
-      duckduckgo-mcp-server
-      scrapling
+      duckduckgo-mcp-server[browser]
+      scrapling[ai]
     )
   else
     uv_packages=(
@@ -92,8 +92,8 @@ if [ "$SKIP_UV" -ne 1 ]; then
       mcp-server-fetch==2025.4.7
       mcp-server-time==2026.1.26
       grep-mcp==1.0.3
-      duckduckgo-mcp-server==0.3.0
-      scrapling==0.4.7
+      duckduckgo-mcp-server[browser]==0.4.0
+      scrapling[ai]==0.4.8
     )
   fi
   for package_name in "${uv_packages[@]}"; do

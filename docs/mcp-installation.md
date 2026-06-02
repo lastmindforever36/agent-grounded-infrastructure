@@ -41,10 +41,10 @@ Node/npm tools:
 ```bash
 npm install -g \
   @colbymchenry/codegraph@0.9.8 \
-  @playwright/mcp@0.0.74 \
+  @playwright/mcp@0.0.75 \
   @modelcontextprotocol/server-github@2025.4.8 \
   @modelcontextprotocol/server-brave-search@0.6.2 \
-  @_davideast/stitch-mcp@0.5.5
+  @_davideast/stitch-mcp@0.9.0
 ```
 
 Python/uv tools:
@@ -54,8 +54,8 @@ uv tool install mcp-server-git==2026.1.14
 uv tool install mcp-server-fetch==2025.4.7
 uv tool install mcp-server-time==2026.1.26
 uv tool install grep-mcp==1.0.3
-uv tool install duckduckgo-mcp-server==0.3.0
-uv tool install scrapling==0.4.7
+uv tool install duckduckgo-mcp-server[browser]==0.4.0
+uv tool install scrapling[ai]==0.4.8
 ```
 
 ## CodeGraph
